@@ -1,0 +1,1329 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Non Veg</title>
+</head>
+
+<body>
+    <!doctype html>
+    <html lang="en">
+
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+    </head>
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Island+Moments&display=swap');
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js"></script>
+
+    <script src="index.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+
+
+
+
+    <script>
+        function createac() {
+            let fname = document.getElementById('fname').value, email = document.getElementById('email').value, addressa = document.getElementById('addressa').value;
+
+            console.log(fname);
+
+
+
+            $.ajax({
+                method: 'POST',
+                url: 'http://localhost:80/maynip/Createac/insert.php',
+                data: {
+
+                    fname: fname,
+                    email: email,
+                    addressa: addressa,
+
+                }
+
+
+
+
+
+            }).then(function (data) {
+
+                let acdata = jQuery.parseJSON(data);
+                console.log(acdata);
+                if (acdata.STATUS == "Success") {
+                    //  alert("Data Inserted Successfully");
+                    window.location = "order.html"
+                } else {
+                    alert("Failed To Insert");
+                }
+            })
+        }
+        $(document).ready(function () {
+
+            $('.owl-carousel').owlCarousel({
+                mouseDrag: false,
+                loop: true,
+                margin: 2,
+                nav: true,
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    600: {
+                        items: 1
+                    },
+                    1000: {
+                        items: 3
+                    }
+                }
+            });
+
+            $('.owl-prev').click(function () {
+                $active = $('.owl-item .item.show');
+                $('.owl-item .item.show').removeClass('show');
+                $('.owl-item .item').removeClass('next');
+                $('.owl-item .item').removeClass('prev');
+                $active.addClass('next');
+                if ($active.is('.first')) {
+                    $('.owl-item .last').addClass('show');
+                    $('.first').addClass('next');
+                    $('.owl-item .last').parent().prev().children('.item').addClass('prev');
+                }
+                else {
+                    $active.parent().prev().children('.item').addClass('show');
+                    if ($active.parent().prev().children('.item').is('.first')) {
+                        $('.owl-item .last').addClass('prev');
+                    }
+                    else {
+                        $('.owl-item .show').parent().prev().children('.item').addClass('prev');
+                    }
+                }
+            });
+
+            $('.owl-next').click(function () {
+                $active = $('.owl-item .item.show');
+                $('.owl-item .item.show').removeClass('show');
+                $('.owl-item .item').removeClass('next');
+                $('.owl-item .item').removeClass('prev');
+                $active.addClass('prev');
+                if ($active.is('.last')) {
+                    $('.owl-item .first').addClass('show');
+                    $('.owl-item .first').parent().next().children('.item').addClass('prev');
+                }
+                else {
+                    $active.parent().next().children('.item').addClass('show');
+                    if ($active.parent().next().children('.item').is('.last')) {
+                        $('.owl-item .first').addClass('next');
+                    }
+                    else {
+                        $('.owl-item .show').parent().next().children('.item').addClass('next');
+                    }
+                }
+            });
+
+        });
+
+
+
+
+
+
+
+    </script>
+
+
+
+
+
+
+
+
+
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Allerta+Stencil&display=swap');
+
+        @import url('https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2&family=Exo+2:wght@500&family=Island+Moments&family=Permanent+Marker&family=Yanone+Kaffeesatz:wght@600&display=swap');
+
+
+
+
+
+        body {
+            background: #1a0606;
+            height: 1000px;
+
+        }
+
+        header {
+            background: #000;
+            color: #fff
+        }
+
+        .left-side,
+        .right-side {
+            height: 200vh
+        }
+
+        .navbar-transparent {
+            background: transparent
+        }
+
+        .navbar-nav>li>a {
+            color: #fff
+        }
+
+        .navbar-nav>li:hover {
+            border-bottom: 1px solid #fff
+        }
+
+        .navbar-nav>.active {
+            border-bottom: 1px solid #fff
+        }
+
+        .navbar-brand {
+            font-family: 'Allerta Stencil', sans-serif;
+            color: #83ff00
+        }
+
+        .navbar-brand:hover {
+            color: #fff
+        }
+
+        .left-side img {
+            padding-top: 100px
+        }
+
+        .shape {
+            width: 100%;
+            height: 100vh;
+            background-image: linear-gradient(327deg, #c30909, #002bff3b);
+            position: absolute;
+            -webkit-clip-path: ellipse(500px 500px at 10% 5%);
+        }
+
+        .right-side {
+            padding-top: 150px
+        }
+
+        .right-side h1 {
+            font-family: 'Allerta Stencil', sans-serif;
+            font-size: xx-large;
+            font-size: 2.4em;
+            text-align: center;
+            margin-top: 6em;
+        }
+
+        .right-side p {
+            font-size: 1.5em;
+            text-align: center;
+            font-weight: bold
+        }
+
+        .btn.order-button {
+            background: transparent;
+            border: 2px solid #83ff00;
+            color: #83ff00;
+            border-radius: 30%;
+            transition: 0.7s
+        }
+
+        .btn1 {
+            background: transparent;
+            border: 2px solid #83ff00;
+            color: #83ff00;
+            border-radius: 30%;
+            transition: 0.7s;
+            margin-left: 90px;
+            width: 170px;
+        }
+
+
+        .btn.order-button:hover {
+            border: 2px solid #ce0000;
+            color: #ce0000
+        }
+
+        #c2 {
+            width: 100%;
+            font-family: 'Allerta Stencil', sans-serif;
+
+        }
+
+        #hunger {
+            padding-bottom: 589px;
+
+
+        }
+
+        .footer-bs {
+
+            padding: 60px 40px;
+
+            margin-bottom: 200px;
+            border-bottom-right-radius: 6px;
+            border-top-left-radius: 0px;
+            border-bottom-left-radius: 6px;
+            background-color: #111716;
+            color: rgba(255, 255, 255, 1.00);
+        }
+
+        .footer-bs .footer-brand,
+        .footer-bs .footer-nav,
+        .footer-bs .footer-social,
+        .footer-bs .footer-ns {
+            padding: 10px 25px;
+        }
+
+        .footer-bs .footer-nav,
+        .footer-bs .footer-social,
+        .footer-bs .footer-ns {
+            border-color: transparent;
+        }
+
+        .footer-bs .footer-brand h2 {
+            margin: 0px 0px 10px;
+        }
+
+        .footer-bs .footer-brand p {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.70);
+        }
+
+        .footer-bs .footer-nav ul.pages {
+            list-style: none;
+            padding: 0px;
+        }
+
+        .footer-bs .footer-nav ul.pages li {
+            padding: 5px 0px;
+        }
+
+        .footer-bs .footer-nav ul.pages a {
+            color: rgba(255, 255, 255, 1.00);
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .footer-bs .footer-nav ul.pages a:hover {
+            color: rgba(255, 255, 255, 0.80);
+            text-decoration: none;
+        }
+
+        .footer-bs .footer-nav h4 {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+        }
+
+        .footer-bs .footer-nav ul.list {
+            list-style: none;
+            padding: 0px;
+        }
+
+        .footer-bs .footer-nav ul.list li {
+            padding: 5px 0px;
+        }
+
+        .footer-bs .footer-nav ul.list a {
+            color: rgba(255, 255, 255, 0.80);
+        }
+
+        .footer-bs .footer-nav ul.list a:hover {
+            color: rgba(255, 255, 255, 0.60);
+            text-decoration: none;
+        }
+
+        .footer-bs .footer-social ul {
+            list-style: none;
+            padding: 0px;
+        }
+
+        .footer-bs .footer-social h4 {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .footer-bs .footer-social li {
+            padding: 5px 4px;
+        }
+
+        .footer-bs .footer-social a {
+            color: rgba(255, 255, 255, 1.00);
+        }
+
+        .footer-bs .footer-social a:hover {
+            color: rgba(255, 255, 255, 0.80);
+            text-decoration: none;
+        }
+
+        .footer-bs .footer-ns h4 {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+        }
+
+        .footer-bs .footer-ns p {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.70);
+        }
+
+        .reveal {
+            position: relative;
+            transform: translateY(150px);
+            opacity: 0;
+            transition: 2s all ease;
+        }
+
+        .reveal.active {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        @media (min-width: 768px) {
+
+            .footer-bs .footer-nav,
+            .footer-bs .footer-social,
+            .footer-bs .footer-ns {
+                border-left: solid 1px rgba(169, 230, 29, 0.1);
+            }
+        }
+
+        .right-sides {
+            margin-top: 15em;
+            margin-left: 2em;
+            font-family: 'Permanent Marker', cursive;
+        }
+
+
+
+        /* FontAwesome for working BootSnippet :> */
+
+        @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        #team {
+            background: rgb(15, 2, 2) !important;
+        }
+
+        .btn-primary:hover,
+        .btn-primary:focus {
+            background-color: #06d317;
+            border-color: #108d6f;
+            box-shadow: none;
+            outline: none;
+        }
+
+        .btn-primary {
+            color: rgb(146, 5, 5);
+            background-color: #06d317;
+            border-color: #007b5e;
+        }
+
+        section {
+            padding: 60px 0;
+        }
+
+        section .section-title {
+            text-align: center;
+            color: #f5e44c;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+        }
+
+        #team .card {
+            border: none;
+            background: #243053;
+        }
+
+        .image-flip:hover .backside,
+        .image-flip.hover .backside {
+            -webkit-transform: rotateY(0deg);
+            -moz-transform: rotateY(0deg);
+            -o-transform: rotateY(0deg);
+            -ms-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+            border-radius: .25rem;
+        }
+
+        .image-flip:hover .frontside,
+        .image-flip.hover .frontside {
+            -webkit-transform: rotateY(180deg);
+            -moz-transform: rotateY(180deg);
+            -o-transform: rotateY(180deg);
+            transform: rotateY(180deg);
+        }
+
+        .mainflip {
+            -webkit-transition: 1s;
+            -webkit-transform-style: preserve-3d;
+            -ms-transition: 1s;
+            -moz-transition: 1s;
+            -moz-transform: perspective(1000px);
+            -moz-transform-style: preserve-3d;
+            -ms-transform-style: preserve-3d;
+            transition: 1s;
+            transform-style: preserve-3d;
+            position: relative;
+        }
+
+        .frontside {
+            position: relative;
+            -webkit-transform: rotateY(0deg);
+            -ms-transform: rotateY(0deg);
+            z-index: 2;
+            margin-bottom: 30px;
+        }
+
+        .backside {
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: rgb(22, 8, 8);
+            -webkit-transform: rotateY(-180deg);
+            -moz-transform: rotateY(-180deg);
+            -o-transform: rotateY(-180deg);
+            -ms-transform: rotateY(-180deg);
+            transform: rotateY(-180deg);
+            -webkit-box-shadow: 5px 7px 9px -4px rgb(158, 158, 158);
+            -moz-box-shadow: 5px 7px 9px -4px rgb(158, 158, 158);
+            box-shadow: 5px 7px 9px -4px rgb(158, 158, 158);
+        }
+
+        .frontside,
+        .backside {
+            -webkit-backface-visibility: hidden;
+            -moz-backface-visibility: hidden;
+            -ms-backface-visibility: hidden;
+            backface-visibility: hidden;
+            -webkit-transition: 1s;
+            -webkit-transform-style: preserve-3d;
+            -moz-transition: 1s;
+            -moz-transform-style: preserve-3d;
+            -o-transition: 1s;
+            -o-transform-style: preserve-3d;
+            -ms-transition: 1s;
+            -ms-transform-style: preserve-3d;
+            transition: 1s;
+            transform-style: preserve-3d;
+        }
+
+        .frontside .card,
+        .backside .card {
+            min-height: 312px;
+        }
+
+        .backside .card a {
+            font-size: 18px;
+            color: #00ff4c !important;
+        }
+
+        .frontside .card .card-title,
+        .backside .card .card-title {
+            color: #08eb39 !important;
+        }
+
+        .frontside .card .card-body img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        /* foodmenu css */
+
+
+
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            color: #cbcbbd94;
+            margin: 0px 0px 15px 0px;
+            font-weight: bold;
+            font-family: 'Allerta Stencil', sans-serif;
+        }
+
+        .pagesectionh1 {
+            font-size: 38px;
+            line-height: 48px;
+
+        }
+
+        h2 {
+            font-size: 36px;
+            line-height: 42px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        h3 {
+            font-size: 26px;
+            line-height: 36px;
+        }
+
+        h4 {
+            font-size: 20px;
+            line-height: 26px;
+        }
+
+        h5 {
+            font-size: 16px;
+        }
+
+        h6 {
+            font-size: 12px;
+        }
+
+        p {
+            margin: 0 0 24px;
+            line-height: 1.6;
+        }
+
+        p:last-child {
+            margin: 0px;
+        }
+
+        ul,
+        ol {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #277227;
+            -webkit-transition: all 0.3s;
+            -moz-transition: all 0.3s;
+            transition: all 0.3s;
+            font-size: 16px;
+        }
+
+        .content a {
+            text-decoration: none;
+            color: #277227;
+            -webkit-transition: all 0.3s;
+            -moz-transition: all 0.3s;
+            transition: all 0.3s;
+            font-size: 16px;
+        }
+
+        .content a:focus,
+        .content a:hover {
+            text-decoration: none;
+            color: #da8f0696;
+            font-size: 20px;
+        }
+
+        .content {
+            background: #0f35504a;
+            color: #98d4ffc9;
+        }
+
+
+
+
+
+
+
+        .menu-block {
+            margin-bottom: 30px;
+        }
+
+        .menu-title {
+            border-bottom: 3px solid #007bff6e;
+            margin-bottom: 36px;
+            padding-bottom: 10px;
+        }
+
+        .menu-content {
+            border-bottom: 2px solid #c1ff2a96;
+            margin-bottom: 30px;
+        }
+
+        .dish-img {}
+
+        .dish-content {
+            margin-top: 12px;
+            margin-bottom: 40px;
+        }
+
+        .dish-meta {
+            font-size: 12px;
+            text-transform: uppercase;
+            display: block;
+            width: 210px;
+            line-height: 1.7;
+            color: #00448be8;
+        }
+
+        .dish-title {
+            margin-bottom: 6px;
+            font-size: 15px;
+            text-transform: uppercase;
+            font-weight: 500;
+            position: relative;
+        }
+
+        .dish-price {
+            position: absolute;
+            right: 16px;
+            top: 0px;
+            font-size: 26px;
+            color: #e0dde794;
+            font-weight: 500;
+            font-family: 'Zilla Slab', serif;
+            -webkit-transition: all 0.3s;
+            -moz-transition: all 0.3s;
+            transition: all 0.3s;
+        }
+
+        .dish-price:hover {
+            position: absolute;
+            right: 16px;
+            top: 0px;
+            font-size: 30px;
+            color: #ffffff;
+            font-weight: 500;
+            font-family: 'Zilla Slab', serif;
+        }
+
+        .well-block .dish-meta {
+            width: 100%;
+        }
+
+        .well-block .dish-price {
+            font-size: 26px;
+            color: #6523e0;
+            font-weight: 500;
+            font-family: 'Zilla Slab', serif;
+            position: inherit;
+        }
+
+        .page-title {
+            font-family: 'Baloo Bhaijaan 2', cursive;
+            color: #f54b0888;
+        }
+
+        .page-title1 {
+
+            color: #f7f7e07d;
+            font-family: 'Exo 2', sans-serif;
+        }
+
+        .page-title:hover {
+            font-family: 'Baloo Bhaijaan 2', cursive;
+            color: #eba81ab7;
+
+        }
+
+        .container img {
+
+
+            opacity: 80%;
+            transform: 1s;
+            margin-left: 24px;
+
+
+        }
+
+        .container img:hover {
+
+
+            opacity: 80%;
+            animation: pulse 1s infinite;
+
+
+        }
+
+
+
+        @keyframes pulse {
+            from {
+                box-shadow: 0 0 0 0 rgba(231, 4, 4, 0.712);
+
+            }
+
+            to {
+                box-shadow: 0 0 0 15px rgb(8, 26, 187);
+
+            }
+        }
+
+
+        .centered {
+            position: absolute;
+            top: 5%;
+            left: 63%;
+            transform: translate(-50%, -50%);
+            font-size: 3rem;
+            font-family: 'Allerta Stencil';
+            color: rgb(229 159 53 / 90%);
+        }
+
+        .centered2 {
+            position: absolute;
+            top: 18%;
+            left: 31%;
+            transform: translate(-50%, -50%);
+            font-size: 3rem;
+            font-family: 'Allerta Stencil';
+            color: rgb(229 159 53 / 90%);
+        }
+
+        .centered3 {
+            position: absolute;
+            top: 18%;
+            left: 87%;
+
+            transform: translate(-50%, -50%);
+            font-size: 3rem;
+            font-family: 'Allerta Stencil';
+            color: rgb(229 159 53 / 90%);
+        }
+
+        /*search box css start here*/
+        .search-sec {
+            padding: 2rem;
+        }
+
+        .search-slt {
+            display: block;
+            width: 100%;
+            font-size: 0.875rem;
+            line-height: 1.5;
+            color: #55595c;
+            background-color: #fff;
+            background-image: none;
+            border: 1px solid #ccc;
+            height: calc(3rem + 2px) !important;
+            border-radius: 0;
+        }
+
+        .wrn-btn {
+            width: 100%;
+            font-size: 16px;
+            font-weight: 400;
+            text-transform: capitalize;
+            height: calc(3rem + 2px) !important;
+            border-radius: 0;
+        }
+
+        @media (min-width: 992px) {
+            .search-sec {
+                position: relative;
+                top: -114px;
+                background: rgba(26, 70, 104, 0.51);
+            }
+        }
+
+        @media (max-width: 992px) {
+            .search-sec {
+                background: #1A4668;
+            }
+        }
+
+        .mb-3,
+        .my-3 {
+            margin-bottom: 1rem !important;
+            border-bottom: 2px solid #c1ff2a96;
+            margin-bottom: 30px;
+            color: #c17e05;
+            FONT-SIZE: 1em;
+            background-color: #6495ed1f;
+
+            transition: ease-in 0.5s;
+        }
+
+
+        .card {
+            box-shadow: 1px 18px 25px 10px #fb000066;
+            background-color: #150b4460;
+        }
+
+        .profile-pic {
+            width: 100px !important;
+            height: 100px;
+            box-shadow: 0px 4px 8px 0px #BDBDBD
+        }
+
+        .profile-pic1 {
+            width: 294px !important;
+            height: 144px;
+            box-shadow: 0px 4px 8px 0px #c3da2b;
+        }
+
+        .owl-carousel .owl-nav button.owl-next,
+        .owl-carousel .owl-nav button.owl-prev {
+            background: 0 0;
+            color: #1E88E5 !important;
+            border: none;
+            padding: 5px 20px !important;
+            font: inherit;
+            font-size: 50px !important
+        }
+
+        .owl-carousel .owl-nav button.owl-next:hover,
+        .owl-carousel .owl-nav button.owl-prev:hover {
+            color: #0D47A1 !important;
+            background-color: transparent !important
+        }
+
+        .owl-dots {
+            display: none
+        }
+
+        button:focus {
+            -moz-box-shadow: none !important;
+            -webkit-box-shadow: none !important;
+            box-shadow: none !important;
+            outline-width: 0
+        }
+
+        .item {
+            display: none
+        }
+
+        .next {
+            display: block !important;
+            position: relative;
+            transform: scale(0.8);
+            transition-duration: 0.3s;
+            opacity: 0.6
+        }
+
+        .prev {
+            display: block !important;
+            position: relative;
+            transform: scale(0.8);
+            transition-duration: 0.3s;
+            opacity: 0.6
+        }
+
+        .item.show {
+            display: block;
+            transition-duration: 0.4s
+        }
+
+        @media screen and (max-width: 999px) {
+
+            .next,
+            .prev {
+                transform: scale(1);
+                opacity: 1
+            }
+
+            .item {
+                display: block !important
+            }
+        }
+
+        .mb-3:hover {
+
+            color: #0076bbd5;
+            FONT-SIZE: 1.5rem;
+            cursor: default;
+
+
+        }
+
+        .r12 {
+            font-family: cursive;
+            color: rgb(71 120 255 / 51%);
+            font-family: 'Allerta Stencil';
+            padding: 100px;
+            background: #00118b26;
+
+        }
+
+        .r12heading {
+            font-family: cursive;
+            font-size: 23px;
+
+            color: rgba(245, 241, 10, 0.76);
+            font-family: 'Raleway';
+            /* padding: 30px; */
+            transform: 1s;
+            transition: 0.3s;
+
+        }
+
+        .r12heading:hover {
+            font-family: cursive;
+            font-size: 24px;
+            color: rgb(71 255 77 / 50%);
+            font-family: 'Raleway';
+            /* padding: 30px; */
+            cursor: pointer;
+
+
+        }
+
+        .r12headingright:hover {
+            font-family: cursive;
+            font-size: 25px;
+            color: rgb(71 255 77 / 50%);
+            font-family: 'Raleway';
+            /* padding: 30px; */
+            cursor: pointer;
+
+
+        }
+
+
+        .r12headingright {
+            font-family: cursive;
+            font-size: 23px;
+            color: rgba(245, 241, 10, 0.76);
+            font-family: 'Raleway';
+            margin-left: 200px;
+            transform: 1s;
+            transition: 0.3s;
+
+        }
+
+        .r12headingrighttext {
+
+            margin-left: 200px;
+
+
+        }
+
+        .price {
+            color: rgba(209, 40, 10, 0.671);
+        }
+
+        body::-webkit-scrollbar {
+            display: none;
+        }
+
+
+        @media only screen and (max-width: 600px) and (max-width: 1300px) {
+            .centered2 {
+                position: absolute;
+                top: 9%;
+                left: 31%;
+                transform: translate(-50%, -50%);
+                font-size: 3rem;
+                font-family: 'Allerta Stencil';
+                color: rgb(229 159 53 / 90%);
+            }
+
+            .r12headingright {
+                margin-left: 12px;
+            }
+
+            .r12headingrighttext {
+                margin-left: 12px;
+            }
+
+
+
+        }
+    </style>
+    <link href="form.css" rel="stylesheet">
+    <script src="form.js"></script>
+    </head>
+
+    <body>
+        <div class="main" id="container reveal">
+
+
+            <div class="container-fluid px-0 ">
+                <header>
+                    <div class="shape"></div> <!-- Navbar -->
+                    <nav
+                        class="navbar fixed-top navbar-expand-lg navbar-transparent animate__animated animate__zoomInDown navs">
+                        <a class="navbar-brand" href="home.html">MΛYПIP 🥨</a> <button class="navbar-toggler"
+                            type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <img src="./images/hamburger.png" class="navbar-toggler-icon"></img>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav mr-auto">
+                                <li class="nav-item active"> <a class="nav-link" href="nonveg.html"> NONVEG <span
+                                            class="sr-only">(current)</span></a> </li>
+                                <li class="nav-item"> <a class="nav-link" href="veg.html">VEG</a> </li>
+
+                                <li class="nav-item"> <a class="nav-link" href="admin.html">ADMIN</a> </li>
+
+
+
+
+                            </ul>
+                        </div>
+                    </nav>
+
+                    <div class="centered2 section-title-h1 reveal">
+                        <h1>
+                            Dear Vegans, <br>
+                            Thank You For Saving Good Food For Us :-)
+                        </h1>
+                    </div>
+
+
+
+                </header>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+
+
+            </div>
+            <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+                rel="stylesheet" />
+            <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+                rel="stylesheet" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+            <div class="container-fluid px-3 px-sm-5 my-5 text-center reveal">
+                <h1 class="page-title1"> <b>Top in Nonveg</b></h1>
+                <div class="owl-carousel owl-theme">
+                    <div class="item first prev">
+                        <div class="card border-0 py-3 px-4">
+                            <div class="row justify-content-center"> <img src="images\nonveg\c1.jpg"
+                                    class="img-fluid profile-pic mb-4 mt-3"> </div>
+                            <h6 class="mb-3 mt-2 menu-content">Crispy chicken</h6>
+                            <p class="content mb-5 mx-2">the Burger usually consists of a chicken filet or patty</p>
+                        </div>
+                    </div>
+                    <div class="item show">
+                        <div class="card border-0 py-3 px-4">
+                            <div class="row justify-content-center"> <img src="images\nonveg\c2.jpg"
+                                    class="img-fluid profile-pic mb-4 mt-3"> </div>
+                            <h6 class="mb-3 mt-2"> Mexican burger</h6>
+                            <p class="content mb-5 mx-2">Spice things up with this bold Mexican chicken burger.</p>
+                        </div>
+                    </div>
+                    <div class="item next">
+                        <div class="card border-0 py-3 px-4">
+                            <div class="row justify-content-center"> <img src="images\nonveg\c3.jpg"
+                                    class="img-fluid profile-pic mb-4 mt-3"> </div>
+                            <h6 class="mb-3 mt-2">BBQ chicken burgers</h6>
+                            <p class="content mb-5 mx-2">Channel smoky American barbecue flavours</p>
+                        </div>
+                    </div>
+                    <div class="item last">
+                        <div class="card border-0 py-3 px-4">
+                            <div class="row justify-content-center"> <img src="images\nonveg\c4.jpg"
+                                    class="img-fluid profile-pic mb-4 mt-3"> </div>
+                            <h6 class="mb-3 mt-2">Cajun chicken burgers</h6>
+                            <p class="content mb-5 mx-2">fry chicken coated in cumin, coriander and paprika</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <!-- ./ end of navbar -->
+            <br>
+            <br>
+
+
+
+
+
+
+            <div class="container-fluid-px-0 reveal" id="containermenu">
+                <figure>
+                    <img class="img-fluid" src="images\nonveg\nburger.jpg" alt="">
+
+                    <center>
+
+                        <div class="centered3">
+                            <h3 class="section-title h1">
+                                FLAT <b>50%</b> <br>
+                                Off
+
+                                <h5 class="section-title-h1">
+                                    for Plus Members
+
+                                </h5>
+
+                            </h3>
+                        </div>
+
+
+
+
+
+                    </center>
+                </figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+
+
+
+            <div class="container r12 reveal">
+
+                <div class="row justify-content-center mb-5">
+                    <div class="col-lg-7 text-center">
+
+
+                        <h3 class="page-title" data-aos="fade-up" style="font-size: 40px;">Special Offers</h3>
+                    </div>
+                </div>
+                <div class="row g-0 align-items-stretch">
+                    <div class="col-lg-12">
+                        <div class="d-block d-lg-flex feature-media align-items-stretch">
+                            <div class="img"
+                                style="background-image:url(images/ximg_1.jpg.pagespeed.ic.VpbnsnaQH0.webp)"></div>
+                            <div class="text">
+                                <h3 class="r12heading">XXL Bucket Offer</h3>
+                                <p>Enjoy 4 pc Hot & Crispy & 4 pc juicy Chicken Strips
+                                </p>
+                                <p><span class="price">₹200</span></p>
+                            </div>
+                            <div class="img">
+                                <img src="images\nonveg\bucket.jpg" class="img-fluid profile-pic1 mb-4 mt-3">
+
+                            </div>
+                            <div class="text">
+                                <h3 class="r12headingright">Super Saver </h3>
+                                <p class="r12headingrighttext">Blockbuster deal of 6pc Hot </p>
+                                <p><span class="price r12headingrighttext">₹180</span></p>
+                            </div>
+                            <div class="img">
+                                <img src="images\nonveg\bucket2.jpg" class="img-fluid profile-pic1 mb-4 mt-3">
+
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <br>
+            <br>
+            <br>
+            <div class="container r12 reveal">
+
+                <div class="row justify-content-center mb-5">
+                    <div class="col-lg-7 text-center">
+
+
+
+                    </div>
+                </div>
+                <div class="row g-0 align-items-stretch">
+                    <div class="col-lg-12">
+                        <div class="d-block d-lg-flex feature-media align-items-stretch">
+                            <div class="img"
+                                style="background-image:url(images/ximg_1.jpg.pagespeed.ic.VpbnsnaQH0.webp)"></div>
+                            <div class="text">
+                                <h3 class="r12heading">SP Fried </h3>
+                                <p>Save 33% & enjoy 10 pcs
+                                </p>
+                                <p><span class="price">₹800</span></p>
+                            </div>
+                            <div class="img">
+                                <img src="images\nonveg\bucket3.jpg" class="img-fluid profile-pic1 mb-4 mt-3">
+
+                            </div>
+                            <div class="text">
+                                <h3 class="r12headingright">SP Bucket</h3>
+                                <p class="r12headingrighttext">Save 23% on 3pc Hot </p>
+                                <p><span class="price r12headingrighttext">₹1000</span></p>
+                            </div>
+                            <div class="img">
+                                <img src="images\nonveg\bucket4.jpg" class="img-fluid profile-pic1 mb-4 mt-3">
+
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+    </body>
+
+    </html>

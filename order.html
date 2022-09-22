@@ -1,0 +1,764 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+</head>
+
+<body>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Island+Moments&display=swap');
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js"></script>
+
+    <script src="index.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+
+
+
+
+
+    <script>
+        function ordern() {
+            let oitem = document.getElementById('oitem').value, addon = document.getElementById('addon').value, promo = document.getElementById('promo').value;
+
+            console.log(oitem);
+
+
+
+            $.ajax({
+                method: 'POST',
+                url: 'http://localhost:80/maynip/Createac/insertorders.php',
+                data: {
+
+                    oitem: oitem,
+                    addon: addon,
+                    promo: promo,
+
+                }
+
+
+
+
+
+            }).then(function (data) {
+
+                let acdata = jQuery.parseJSON(data);
+                console.log(acdata);
+                if (acdata.STATUS == "Success") {
+                    //  alert("Data Inserted Successfully");
+                    window.location = "payment.html";
+                } else {
+                    alert("Failed To Insert");
+                }
+            })
+        }
+
+
+
+        window.onload = function () {
+            document.getElementById("abc").style.display = "block";
+        };
+
+
+
+
+
+
+
+
+    </script>
+
+
+
+
+
+
+
+
+
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Allerta+Stencil&display=swap');
+
+
+
+
+        body {
+            background: #1a0606;
+            height: 1000px;
+
+        }
+
+        header {
+            background: #000;
+            color: #fff
+        }
+
+        .left-side,
+        .right-side {
+            height: 200vh
+        }
+
+        .navbar-transparent {
+            background: transparent
+        }
+
+        .navbar-nav>li>a {
+            color: #fff
+        }
+
+        .navbar-nav>li:hover {
+            border-bottom: 1px solid #fff
+        }
+
+        .navbar-nav>.active {
+            border-bottom: 1px solid #fff
+        }
+
+        .navbar-brand {
+            font-family: 'Allerta Stencil', sans-serif;
+            color: #83ff00
+        }
+
+        .navbar-brand:hover {
+            color: #fff
+        }
+
+        .left-side img {
+            padding-top: 100px
+        }
+
+        .shape {
+            width: 100%;
+            height: 100vh;
+            background-image: linear-gradient(327deg, #c30909, #002bff3b);
+            position: absolute;
+            -webkit-clip-path: ellipse(500px 500px at 10% 5%)
+        }
+
+        .right-side {
+            padding-top: 150px
+        }
+
+        .right-side h1 {
+            font-family: 'Allerta Stencil', sans-serif;
+            font-size: xx-large;
+            font-size: 2.4em;
+            text-align: center;
+            margin-top: 6em;
+        }
+
+        .right-side p {
+            font-size: 1.5em;
+            text-align: center;
+            font-weight: bold
+        }
+
+        .btn.order-button {
+            background: transparent;
+            border: 2px solid #83ff00;
+            color: #83ff00;
+            border-radius: 30%;
+            transition: 0.7s
+        }
+
+        .btn1 {
+            background: transparent;
+            border: 2px solid #83ff00;
+            color: #83ff00;
+            border-radius: 30%;
+            transition: 0.7s;
+            margin-left: 90px;
+            width: 170px;
+        }
+
+
+        .btn.order-button:hover {
+            border: 2px solid #ce0000;
+            color: #ce0000
+        }
+
+        #c2 {
+            width: 100%;
+            font-family: 'Allerta Stencil', sans-serif;
+
+        }
+
+        #hunger {
+            padding-bottom: 589px;
+
+
+        }
+
+        .footer-bs {
+
+            padding: 60px 40px;
+
+            margin-bottom: 200px;
+            border-bottom-right-radius: 6px;
+            border-top-left-radius: 0px;
+            border-bottom-left-radius: 6px;
+            background-color: #111716;
+            color: rgba(255, 255, 255, 1.00);
+        }
+
+        .footer-bs .footer-brand,
+        .footer-bs .footer-nav,
+        .footer-bs .footer-social,
+        .footer-bs .footer-ns {
+            padding: 10px 25px;
+        }
+
+        .footer-bs .footer-nav,
+        .footer-bs .footer-social,
+        .footer-bs .footer-ns {
+            border-color: transparent;
+        }
+
+        .footer-bs .footer-brand h2 {
+            margin: 0px 0px 10px;
+        }
+
+        .footer-bs .footer-brand p {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.70);
+        }
+
+        .footer-bs .footer-nav ul.pages {
+            list-style: none;
+            padding: 0px;
+        }
+
+        .footer-bs .footer-nav ul.pages li {
+            padding: 5px 0px;
+        }
+
+        .footer-bs .footer-nav ul.pages a {
+            color: rgba(255, 255, 255, 1.00);
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .footer-bs .footer-nav ul.pages a:hover {
+            color: rgba(255, 255, 255, 0.80);
+            text-decoration: none;
+        }
+
+        .footer-bs .footer-nav h4 {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+        }
+
+        .footer-bs .footer-nav ul.list {
+            list-style: none;
+            padding: 0px;
+        }
+
+        .footer-bs .footer-nav ul.list li {
+            padding: 5px 0px;
+        }
+
+        .footer-bs .footer-nav ul.list a {
+            color: rgba(255, 255, 255, 0.80);
+        }
+
+        .footer-bs .footer-nav ul.list a:hover {
+            color: rgba(255, 255, 255, 0.60);
+            text-decoration: none;
+        }
+
+        .footer-bs .footer-social ul {
+            list-style: none;
+            padding: 0px;
+        }
+
+        .footer-bs .footer-social h4 {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .footer-bs .footer-social li {
+            padding: 5px 4px;
+        }
+
+        .footer-bs .footer-social a {
+            color: rgba(255, 255, 255, 1.00);
+        }
+
+        .footer-bs .footer-social a:hover {
+            color: rgba(255, 255, 255, 0.80);
+            text-decoration: none;
+        }
+
+        .footer-bs .footer-ns h4 {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+        }
+
+        .footer-bs .footer-ns p {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.70);
+        }
+
+        .reveal {
+            position: relative;
+            transform: translateY(150px);
+            opacity: 0;
+            transition: 2s all ease;
+        }
+
+        .reveal.active {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        @media (min-width: 768px) {
+
+            .footer-bs .footer-nav,
+            .footer-bs .footer-social,
+            .footer-bs .footer-ns {
+                border-left: solid 1px rgba(0, 0, 0, 0.1);
+            }
+        }
+
+        .right-sides {
+            margin-top: 15em;
+            margin-left: 2em;
+            font-family: 'Permanent Marker', cursive;
+        }
+    </style>
+    <link href="form.css" rel="stylesheet">
+    <script src="form.js"></script>
+    </head>
+
+    <body>
+        <div class="main" id="container reveal">
+
+
+            <div class="container-fluid px-0 ">
+                <header>
+                    <div class="shape"></div> <!-- Navbar -->
+                    <nav
+                        class="navbar fixed-top navbar-expand-lg navbar-transparent animate__animated animate__zoomInDown">
+                        <a class="navbar-brand" href="home.html">MΛYПIP 🥨</a> <button class="navbar-toggler"
+                            type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <img src="./images/hamburger.png" class="navbar-toggler-icon"></img>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav mr-auto">
+                                <li class="nav-item active"> <a class="nav-link" href="home.html">HOME <span
+                                            class="sr-only">(current)</span></a> </li>
+                                <li class="nav-item"> <a class="nav-link" href="veg.html">VEG</a> </li>
+                                <li class="nav-item"> <a class="nav-link" href="nonveg.html">NONVEG</a> </li>
+         \
+
+                            </ul>
+                        </div>
+                    </nav> <!-- ./ end of navbar -->
+
+                    <div class="row">
+                        <!-- <div class="col-md-6 left-side"> <img src="D:\WEB DEVELOPMENT\Javascript\Master Project\Food Delivery System\images\i1.jpg" class="w-100" id="i1"> </div> -->
+                        <div class="col-md-6 right-sides reveal">
+                            <h1 class=>The Best Food in Market</h1>
+                            <p class=>Largest Foodchain in Pune</p>
+
+                        </div>
+                    </div>
+
+
+                    <div class="container reveal ">
+
+                        <div class="row">
+                            <!-- <div class="col-md-6 left-side"> <img src="D:\WEB DEVELOPMENT\Javascript\Master Project\Food Delivery System\images\i1.jpg" class="w-100" id="i1"> </div> -->
+                            <div class="col-md-6 right-side">
+                                <div id="abc" style="display:none">
+                                    <!-- Popup Div Starts Here -->
+                                    <div id="popupContact">
+                                        <!-- Contact Us Form -->
+                                        <form class=" r18 animate__animated animate__fadeInLeft">
+                                            <img id="close" src="" onclick="div_hide()" alt="X">
+                                            <h2 style="background-color: #26153700;">Order Details</h2>
+                                            <hr>
+                                            <input id="oitem" name="oitem" placeholder="Enter Your Item" type="text">
+                                            <input id="addon" name="addon" placeholder=" Enter Addons" type="text">
+                                            <textarea id="promo" name="promo"
+                                                placeholder="Enter Promo(if-any)"></textarea>
+                                            <button class="btn1" type="button" onclick="ordern()">Pay</button>
+
+                                        </form>
+                                    </div>
+                                    <!-- Popup Div Ends Here -->
+                                </div>
+                                <h1>We deliver Delicious Food!</h1>
+                                <p>FREE DELIVERY</p>
+                                <div class="text-center"> <button class="btn order-button" id="popup"
+                                        onclick="div_show()">ORDER NOW</button> </div>
+
+
+
+
+
+
+                            </div>
+                        </div>
+
+
+
+
+
+
+
+
+
+
+
+                    </div>
+
+
+                    <div class="container-fluid-px-0 reveal" id='car1'>
+                        <section class="pt-5 pb-5">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <h3 class="mb-3">Our Ratings </h3>
+                                    </div>
+                                    <div class="col-6 text-right">
+                                        <a class="btn btn-primary mb-3 mr-1" href="#carouselExampleIndicators2"
+                                            role="button" data-slide="prev">
+                                            <i class="fa fa-arrow-left"></i>
+                                        </a>
+                                        <a class="btn btn-primary mb-3 " href="#carouselExampleIndicators2"
+                                            role="button" data-slide="next">
+                                            <i class="fa fa-arrow-right"></i>
+                                        </a>
+                                    </div>
+                                    <div class="col-12">
+                                        <div id="carouselExampleIndicators2" class="carousel slide"
+                                            data-ride="carousel">
+
+                                            <div class="carousel-inner">
+                                                <div class="carousel-item active">
+                                                    <div class="row">
+
+                                                        <div class="col-md-4 mb-3">
+                                                            <div class="card">
+                                                                <img class="img-fluid" alt="100%x280"
+                                                                    src="https://images.unsplash.com/photo-1532781914607-2031eca2f00d?ixlib=rb-0.3.5&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1080&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjMyMDc0fQ&amp;s=7c625ea379640da3ef2e24f20df7ce8d">
+                                                                <div class="card-body">
+                                                                    <h4 class="card-title">Special title treatment</h4>
+                                                                    <p class="card-text">With supporting text below as a
+                                                                        natural lead-in to additional content.</p>
+
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4 mb-3">
+                                                            <div class="card">
+                                                                <img class="img-fluid" alt="100%x280"
+                                                                    src="https://images.unsplash.com/photo-1517760444937-f6397edcbbcd?ixlib=rb-0.3.5&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1080&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjMyMDc0fQ&amp;s=42b2d9ae6feb9c4ff98b9133addfb698">
+                                                                <div class="card-body">
+                                                                    <h4 class="card-title">Special title treatment</h4>
+                                                                    <p class="card-text">With supporting text below as a
+                                                                        natural lead-in to additional content.</p>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4 mb-3">
+                                                            <div class="card">
+                                                                <img class="img-fluid" alt="100%x280"
+                                                                    src="https://images.unsplash.com/photo-1532712938310-34cb3982ef74?ixlib=rb-0.3.5&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1080&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjMyMDc0fQ&amp;s=3d2e8a2039c06dd26db977fe6ac6186a">
+                                                                <div class="card-body">
+                                                                    <h4 class="card-title">Special title treatment</h4>
+                                                                    <p class="card-text">With supporting text below as a
+                                                                        natural lead-in to additional content.</p>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <div class="row">
+
+                                                        <div class="col-md-4 mb-3">
+                                                            <div class="card">
+                                                                <img class="img-fluid" alt="100%x280"
+                                                                    src="https://images.unsplash.com/photo-1532771098148-525cefe10c23?ixlib=rb-0.3.5&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1080&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjMyMDc0fQ&amp;s=3f317c1f7a16116dec454fbc267dd8e4">
+                                                                <div class="card-body">
+                                                                    <h4 class="card-title">Special title treatment</h4>
+                                                                    <p class="card-text">With supporting text below as a
+                                                                        natural lead-in to additional content.</p>
+
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4 mb-3">
+                                                            <div class="card">
+                                                                <img class="img-fluid" alt="100%x280"
+                                                                    src="https://images.unsplash.com/photo-1532715088550-62f09305f765?ixlib=rb-0.3.5&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1080&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjMyMDc0fQ&amp;s=ebadb044b374504ef8e81bdec4d0e840">
+                                                                <div class="card-body">
+                                                                    <h4 class="card-title">Special title treatment</h4>
+                                                                    <p class="card-text">With supporting text below as a
+                                                                        natural lead-in to additional content.</p>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4 mb-3">
+                                                            <div class="card">
+                                                                <img class="img-fluid" alt="100%x280"
+                                                                    src="https://images.unsplash.com/photo-1506197603052-3cc9c3a201bd?ixlib=rb-0.3.5&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1080&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjMyMDc0fQ&amp;s=0754ab085804ae8a3b562548e6b4aa2e">
+                                                                <div class="card-body">
+                                                                    <h4 class="card-title">Special title treatment</h4>
+                                                                    <p class="card-text">With supporting text below as a
+                                                                        natural lead-in to additional content.</p>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <div class="row">
+
+                                                        <div class="col-md-4 mb-3">
+                                                            <div class="card">
+                                                                <img class="img-fluid" alt="100%x280"
+                                                                    src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-0.3.5&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1080&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjMyMDc0fQ&amp;s=ee8417f0ea2a50d53a12665820b54e23">
+                                                                <div class="card-body">
+                                                                    <h4 class="card-title">Special title treatment</h4>
+                                                                    <p class="card-text">With supporting text below as a
+                                                                        natural lead-in to additional content.</p>
+
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4 mb-3">
+                                                            <div class="card">
+                                                                <img class="img-fluid" alt="100%x280"
+                                                                    src="https://images.unsplash.com/photo-1532777946373-b6783242f211?ixlib=rb-0.3.5&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1080&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjMyMDc0fQ&amp;s=8ac55cf3a68785643998730839663129">
+                                                                <div class="card-body">
+                                                                    <h4 class="card-title">Special title treatment</h4>
+                                                                    <p class="card-text">With supporting text below as a
+                                                                        natural lead-in to additional content.</p>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4 mb-3">
+                                                            <div class="card">
+                                                                <img class="img-fluid" alt="100%x280"
+                                                                    src="https://images.unsplash.com/photo-1532763303805-529d595877c5?ixlib=rb-0.3.5&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1080&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjMyMDc0fQ&amp;s=5ee4fd5d19b40f93eadb21871757eda6">
+                                                                <div class="card-body">
+                                                                    <h4 class="card-title">Special title treatment</h4>
+                                                                    <p class="card-text">With supporting text below as a
+                                                                        natural lead-in to additional content.</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+
+
+
+
+                    </div>
+            </div>
+            <div class="container-fluid-px-0 reveal" id='c3'>
+                <div class="col-lg-12 left-side">
+                    <img src="D:\WEB DEVELOPMENT\Javascript\Master Project\Food Delivery System\images\i2.jpg"
+                        class="w-100" id="i1">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h1 class="reveal">Can You Imagine World without the Hunger......?</h1>
+
+
+
+
+
+                    </div>
+                </div>
+                <div class="container-fluid-px-0 reveal" id='c4'>
+                    <div class="col-lg-12 left-side"> <img
+                            src="D:\WEB DEVELOPMENT\Javascript\Master Project\Food Delivery System\images\i4.jpg"
+                            class="w-100" id="i1">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h1 class="reveal">We're not getting younger. Today let's fight hunger!</h1>
+
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+                </header>
+
+
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <div class="row">
+                <!-- <div class="col-md-6 left-side"> <img src="D:\WEB DEVELOPMENT\Javascript\Master Project\Food Delivery System\images\i1.jpg" class="w-100" id="i1"> </div> -->
+                <div class="col-md-6 right-side">
+                    <h1 class="reveal" style="color:rgb(156, 12, 12);">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;We
+                        Always Sanitize Your Food Before Delivery</h1>
+
+
+
+                </div>
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <div class="container-fluid-px-0 reveal">
+                <section style="height:80px;"></section>
+                <div class="row" style="text-align:center;">
+
+                </div>
+
+                <footer class="footer-bs">
+                    <div class="row">
+                        <div class="col-md-3 footer-brand animated fadeInLeft">
+                            <h2 style="background-color: yellowgreen;">MΛYПIP🥨</h2>
+                            <ul>
+                                Project by
+                                <i class="fa fa-instagram" aria-hidden="true"></i>rc_instaa</a></li>
+
+
+                            </ul>
+
+                        </div>
+                        <div class="col-md-4 footer-nav animated fadeInUp">
+                            <h4>Menu —</h4>
+                            <div class="col-md-6">
+                                <ul class="pages">
+                                    <li><a href="#">About Us</a></li>
+                                    <li><a href="#">Contacts</a></li>
+                                    <li><a href="#">Terms & Condition</a></li>
+                                    <li><a href="#">Privacy Policy</a></li>
+                                    <li><a href="#">Advice</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="list">
+                                    <li><a href="#"></a></li>
+                                    <li><a href="#"></a></li>
+                                    <li><a href="#"></a></li>
+                                    <li><a href="#"></a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                    <div class="col-md-3 footer-ns animated fadeInRight">
+
+
+
+
+                    </div>
+            </div>
+            </footer>
+            <section style="text-align:center; margin:10px auto;">
+                <p>Designed by
+                <h1>Rohit&copy;2022</h1>
+                </p>
+            </section>
+
+        </div>
+        </div>
+        </div>
+    </body>
+
+</html>

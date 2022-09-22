@@ -1,0 +1,1392 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+</head>
+
+<body>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Island+Moments&display=swap');
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js"></script>
+
+    <script src="index.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+
+
+
+
+    <script>
+        function createac() {
+            let fname = document.getElementById('fname').value, email = document.getElementById('email').value, addressa = document.getElementById('addressa').value;
+
+            console.log(fname);
+
+
+
+            $.ajax({
+                method: 'POST',
+                url: 'http://localhost:80/maynip/Createac/insert.php',
+                data: {
+
+                    fname: fname,
+                    email: email,
+                    addressa: addressa,
+
+                }
+
+
+
+
+
+            }).then(function (data) {
+
+                let acdata = jQuery.parseJSON(data);
+                console.log(acdata);
+                if (acdata.STATUS == "Success") {
+                    //  alert("Data Inserted Successfully");
+                    window.location = "order.html"
+                } else {
+                    alert("Failed To Insert");
+                }
+            })
+        }
+
+
+
+
+
+
+
+
+    </script>
+
+
+
+
+
+
+
+
+
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Allerta+Stencil&display=swap');
+
+
+        @media only screen and (max-width: 600px) and (max-width: 1300px) {
+ .life{
+
+    font-size: 12px;
+    /* float: right; */
+    margin-top: -6em;
+    position: absolute;
+    margin-left: -11em;
+}
+.flat{
+    font-size: 12px;
+    /* float: right; */
+    margin-top: -7em;
+    position: absolute;
+    line-height: normal;
+}
+
+}
+
+
+
+
+
+        body {
+            background: #1a0606;
+            height: 1000px;
+
+        }
+        body::-webkit-scrollbar {
+  display: none;
+}
+
+           
+
+        header {
+            background: #000;
+            color: #fff
+        }
+
+        .left-side,
+        .right-side {
+            height: 200vh
+        }
+
+        .navbar-transparent {
+            background: transparent
+        }
+
+        .navbar-nav>li>a {
+            color: #fff
+        }
+
+        .navbar-nav>li:hover {
+            border-bottom: 1px solid #fff
+        }
+
+        .navbar-nav>.active {
+            border-bottom: 1px solid #fff
+        }
+
+        .navbar-brand {
+            font-family: 'Allerta Stencil', sans-serif;
+            color: #83ff00
+        }
+
+        .navbar-brand:hover {
+            color: #fff
+        }
+
+        .left-side img {
+            padding-top: 100px
+        }
+
+        .shape {
+            width: 100%;
+            height: 100vh;
+            width: 100%;
+            height: 100vh;
+            background-image: linear-gradient(327deg, #c30909, #002bff3b);
+            position: absolute;
+            -webkit-clip-path: ellipse(500px 500px at 10% 5%);
+        }
+
+        .right-side {
+            padding-top: 150px
+        }
+
+        .right-side h1 {
+            font-family: 'Allerta Stencil', sans-serif;
+            font-size: xx-large;
+            font-size: 2.4em;
+            text-align: center;
+            margin-top: 6em;
+        }
+
+        .right-side p {
+            font-size: 1.5em;
+            text-align: center;
+            font-weight: bold
+        }
+
+        .btn.order-button {
+            background: transparent;
+            border: 2px solid #83ff00;
+            color: #83ff00;
+            border-radius: 30%;
+            transition: 0.7s
+        }
+
+        .btn1 {
+            background: transparent;
+            border: 2px solid #83ff00;
+            color: #83ff00;
+            border-radius: 30%;
+            transition: 0.7s;
+            margin-left: 90px;
+            width: 170px;
+        }
+
+
+        .btn.order-button:hover {
+            border: 2px solid #ce0000;
+            color: #ce0000
+        }
+
+        #c2 {
+            width: 100%;
+            font-family: 'Allerta Stencil', sans-serif;
+
+        }
+
+        #hunger {
+            padding-bottom: 589px;
+
+
+        }
+
+        .footer-bs {
+
+            padding: 60px 40px;
+
+            margin-bottom: 200px;
+            border-bottom-right-radius: 6px;
+            border-top-left-radius: 0px;
+            border-bottom-left-radius: 6px;
+            background-color: #111716;
+            color: rgba(255, 255, 255, 1.00);
+        }
+
+        .footer-bs .footer-brand,
+        .footer-bs .footer-nav,
+        .footer-bs .footer-social,
+        .footer-bs .footer-ns {
+            padding: 10px 25px;
+        }
+
+        .footer-bs .footer-nav,
+        .footer-bs .footer-social,
+        .footer-bs .footer-ns {
+            border-color: transparent;
+        }
+
+        .footer-bs .footer-brand h2 {
+            margin: 0px 0px 10px;
+        }
+
+        .footer-bs .footer-brand p {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.70);
+        }
+
+        .footer-bs .footer-nav ul.pages {
+            list-style: none;
+            padding: 0px;
+        }
+
+        .footer-bs .footer-nav ul.pages li {
+            padding: 5px 0px;
+        }
+
+        .footer-bs .footer-nav ul.pages a {
+            color: rgba(255, 255, 255, 1.00);
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .footer-bs .footer-nav ul.pages a:hover {
+            color: rgba(255, 255, 255, 0.80);
+            text-decoration: none;
+        }
+
+        .footer-bs .footer-nav h4 {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+        }
+
+        .footer-bs .footer-nav ul.list {
+            list-style: none;
+            padding: 0px;
+        }
+
+        .footer-bs .footer-nav ul.list li {
+            padding: 5px 0px;
+        }
+
+        .footer-bs .footer-nav ul.list a {
+            color: rgba(255, 255, 255, 0.80);
+        }
+
+        .footer-bs .footer-nav ul.list a:hover {
+            color: rgba(255, 255, 255, 0.60);
+            text-decoration: none;
+        }
+
+        .footer-bs .footer-social ul {
+            list-style: none;
+            padding: 0px;
+        }
+
+        .footer-bs .footer-social h4 {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .footer-bs .footer-social li {
+            padding: 5px 4px;
+        }
+
+        .footer-bs .footer-social a {
+            color: rgba(255, 255, 255, 1.00);
+        }
+
+        .footer-bs .footer-social a:hover {
+            color: rgba(255, 255, 255, 0.80);
+            text-decoration: none;
+        }
+
+        .footer-bs .footer-ns h4 {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+        }
+
+        .footer-bs .footer-ns p {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.70);
+        }
+
+        .reveal {
+            position: relative;
+            transform: translateY(150px);
+            opacity: 0;
+            transition: 2s all ease;
+        }
+
+        .reveal.active {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        @media (min-width: 768px) {
+
+            .footer-bs .footer-nav,
+            .footer-bs .footer-social,
+            .footer-bs .footer-ns {
+                border-left: solid 1px rgba(169, 230, 29, 0.1);
+            }
+        }
+
+        .right-sides {
+            margin-top: 15em;
+            margin-left: 2em;
+            font-family: 'Permanent Marker', cursive;
+        }
+
+        .card:hover {
+            background-color: rgb(184, 241, 97)
+        }
+
+        /* FontAwesome for working BootSnippet :> */
+
+        @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        #team {
+            background: rgb(15, 2, 2) !important;
+        }
+
+        .btn-primary:hover,
+        .btn-primary:focus {
+            background-color: #06d317;
+            border-color: #108d6f;
+            box-shadow: none;
+            outline: none;
+        }
+
+        .btn-primary {
+            color: rgb(146, 5, 5);
+            background-color: #06d317;
+            border-color: #007b5e;
+        }
+
+        section {
+            padding: 60px 0;
+        }
+
+        section .section-title {
+            text-align: center;
+            color: #f5e44c;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+        }
+
+        #team .card {
+            border: none;
+            background: #29228c77;
+            box-shadow: 1px 20px 20px 12px rgb(190 21 219 / 49%);
+        }
+
+        .image-flip:hover .backside,
+        .image-flip.hover .backside {
+            -webkit-transform: rotateY(0deg);
+            -moz-transform: rotateY(0deg);
+            -o-transform: rotateY(0deg);
+            -ms-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+            border-radius: .25rem;
+        }
+
+        .image-flip:hover .frontside,
+        .image-flip.hover .frontside {
+            -webkit-transform: rotateY(180deg);
+            -moz-transform: rotateY(180deg);
+            -o-transform: rotateY(180deg);
+            transform: rotateY(180deg);
+        }
+
+        .mainflip {
+            -webkit-transition: 1s;
+            -webkit-transform-style: preserve-3d;
+            -ms-transition: 1s;
+            -moz-transition: 1s;
+            -moz-transform: perspective(1000px);
+            -moz-transform-style: preserve-3d;
+            -ms-transform-style: preserve-3d;
+            transition: 1s;
+            transform-style: preserve-3d;
+            position: relative;
+        }
+
+        .frontside {
+            position: relative;
+            -webkit-transform: rotateY(0deg);
+            -ms-transform: rotateY(0deg);
+            z-index: 2;
+            margin-bottom: 30px;
+        }
+
+        .backside {
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: rgb(22, 8, 8);
+            -webkit-transform: rotateY(-180deg);
+            -moz-transform: rotateY(-180deg);
+            -o-transform: rotateY(-180deg);
+            -ms-transform: rotateY(-180deg);
+            transform: rotateY(-180deg);
+            -webkit-box-shadow: 5px 7px 9px -4px rgb(158, 158, 158);
+            -moz-box-shadow: 5px 7px 9px -4px rgb(158, 158, 158);
+            box-shadow: 5px 7px 9px -4px rgb(158, 158, 158);
+        }
+
+        .frontside,
+        .backside {
+            -webkit-backface-visibility: hidden;
+            -moz-backface-visibility: hidden;
+            -ms-backface-visibility: hidden;
+            backface-visibility: hidden;
+            -webkit-transition: 1s;
+            -webkit-transform-style: preserve-3d;
+            -moz-transition: 1s;
+            -moz-transform-style: preserve-3d;
+            -o-transition: 1s;
+            -o-transform-style: preserve-3d;
+            -ms-transition: 1s;
+            -ms-transform-style: preserve-3d;
+            transition: 1s;
+            transform-style: preserve-3d;
+        }
+
+        .frontside .card,
+        .backside .card {
+            min-height: 312px;
+        }
+
+        .backside .card a {
+            font-size: 18px;
+            color: #00ff4c !important;
+        }
+
+        .frontside .card .card-title,
+        .backside .card .card-title {
+            color: #08eb39 !important;
+        }
+
+        .frontside .card .card-body img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        /* foodmenu css */
+
+
+
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            color: #cbcbbd94;
+            margin: 0px 0px 15px 0px;
+            font-weight: bold;
+            font-family: 'Allerta Stencil', sans-serif;
+        }
+
+        .pagesectionh1 {
+            font-size: 38px;
+            line-height: 48px;
+
+        }
+
+        h2 {
+            font-size: 36px;
+            line-height: 42px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        h3 {
+            font-size: 26px;
+            line-height: 36px;
+        }
+
+        h4 {
+            font-size: 20px;
+            line-height: 26px;
+        }
+
+        h5 {
+            font-size: 16px;
+        }
+
+        h6 {
+            font-size: 12px;
+        }
+
+        p {
+            margin: 0 0 24px;
+            line-height: 1.6;
+        }
+
+        p:last-child {
+            margin: 0px;
+        }
+
+        ul,
+        ol {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #277227;
+            -webkit-transition: all 0.3s;
+            -moz-transition: all 0.3s;
+            transition: all 0.3s;
+            font-size: 16px;
+        }
+
+        .content a {
+            text-decoration: none;
+            color: #277227;
+            -webkit-transition: all 0.3s;
+            -moz-transition: all 0.3s;
+            transition: all 0.3s;
+            font-size: 16px;
+        }
+
+        .content a:focus,
+        .content a:hover {
+            text-decoration: none;
+            color: #da8f0696;
+            font-size: 20px;
+        }
+
+        .content {
+            background: #0f35504a;
+        }
+
+
+
+
+
+
+
+        .menu-block {
+            margin-bottom: 30px;
+        }
+
+        .menu-title {
+            border-bottom: 3px solid #007bff6e;
+            margin-bottom: 36px;
+            padding-bottom: 10px;
+        }
+
+        .menu-content {
+            border-bottom: 2px solid #c1ff2a96;
+            margin-bottom: 30px;
+        }
+
+        .dish-img {}
+
+        .dish-content {
+            margin-top: 12px;
+            margin-bottom: 40px;
+        }
+
+        .dish-meta {
+            font-size: 12px;
+            text-transform: uppercase;
+            display: block;
+            width: 210px;
+            line-height: 1.7;
+            color: #00448be8;
+        }
+
+        .dish-title {
+            margin-bottom: 6px;
+            font-size: 15px;
+            text-transform: uppercase;
+            font-weight: 500;
+            position: relative;
+        }
+
+        .dish-price {
+            position: absolute;
+            right: 16px;
+            top: 0px;
+            font-size: 26px;
+            color: #e0dde794;
+            font-weight: 500;
+            font-family: 'Zilla Slab', serif;
+            -webkit-transition: all 0.3s;
+            -moz-transition: all 0.3s;
+            transition: all 0.3s;
+        }
+
+        .dish-price:hover {
+            position: absolute;
+            right: 16px;
+            top: 0px;
+            font-size: 30px;
+            color: #ffffff;
+            font-weight: 500;
+            font-family: 'Zilla Slab', serif;
+            cursor: pointer;
+        }
+
+        .well-block .dish-meta {
+            width: 100%;
+        }
+
+        .well-block .dish-price {
+            font-size: 26px;
+            color: #6523e0;
+            font-weight: 500;
+            font-family: 'Zilla Slab', serif;
+            position: inherit;
+        }
+
+        .page-title {
+            font-family: 'Baloo Bhaijaan 2', cursive;
+            color: #f54b0888;
+        }
+
+        .page-title:hover {
+            font-family: 'Baloo Bhaijaan 2', cursive;
+            color: #eba81ab7;
+
+        }
+
+        .container img {
+
+
+            opacity: 100%;
+        }
+
+        .centered {
+            position: absolute;
+            top: 5%;
+            left: 63%;
+            transform: translate(-50%, -50%);
+            font-size: 3rem;
+            font-family: 'Allerta Stencil';
+            color: rgb(229 159 53 / 90%);
+        }
+    </style>
+    <link href="form.css" rel="stylesheet">
+    <script src="form.js"></script>
+    </head>
+
+    <body>
+        <div class="main" id="container reveal">
+
+
+            <div class="container-fluid px-0 ">
+                <header>
+                    <div class="shape"></div> <!-- Navbar -->
+                    <nav
+                        class="navbar fixed-top navbar-expand-lg navbar-transparent animate__animated animate__zoomInDown">
+                        <a class="navbar-brand" href="home.html">MΛYПIP 🥨</a> <button class="navbar-toggler"
+                            type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <img src="./images/hamburger.png" class="navbar-toggler-icon"></img>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav mr-auto">
+                                <li class="nav-item active"> <a class="nav-link" href="home.html">HOME <span
+                                    class="sr-only">(current)</span></a> </li>
+                        <li class="nav-item"> <a class="nav-link" href="veg.html">VEG</a> </li>
+                        <li class="nav-item"> <a class="nav-link" href="nonveg.html">NONVEG</a> </li>
+                        <li class="nav-item"> <a class="nav-link" href="admin.html">ADMIN</a> </li>
+                  
+     
+                            </ul>
+                        </div>
+                    </nav> <!-- ./ end of navbar -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    <!------ Include the above in your HEAD tag ---------->
+
+                    <!-- Team -->
+                    <section id="team" class="pb-5">
+                        <div class="container reveal" style="opacity:70%">
+                            <h5 class="section-title h1 " style="  font-family: 'Allerta Stencil', sans-serif;">Tell
+                                Someone your're Vegan <br>and suddenly they have a degree in nutrition :-P</h5>
+                            <div class="row">
+                                <!-- Team member -->
+                                <div class="col-xs-12 col-sm-6 col-md-4">
+                                    <div class="image-flip">
+                                        <div class="mainflip flip-0">
+                                            <div class="frontside">
+                                                <div class="card">
+                                                    <div class="card-body text-center">
+                                                        <p><img class=" img-fluid"
+                                                                src="https://source.unsplash.com/1600x900/?pizza"
+                                                                alt="card image"></p>
+                                                        <h4 class="card-title">Try Our Handmade Pizzas</h4>
+                                                        <p class="card-text reveal">A Slice a Day Keeps the Sadness Away
+                                                        </p>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="backside">
+                                                <div class="card">
+                                                    <div class="card-body text-center mt-4">
+                                                        <h4 class="card-title">Pizza</h4>
+                                                        <p class="card-text reveal">Pizza is a dish of Italian origin
+                                                            consisting of a usually round, flat base of leavened
+                                                            wheat-based dough topped with tomatoes, cheese, and often
+                                                            various other ingredients</p>
+                                                        <ul class="list-inline">
+                                                            <li class="list-inline-item">
+                                                                <a class="social-icon text-xs-center" target="_blank"
+                                                                    href="https://www.fiverr.com/share/qb8D02">
+                                                                    <i class="fa fa-facebook"></i>
+                                                                </a>
+                                                            </li>
+                                                            <li class="list-inline-item">
+                                                                <a class="social-icon text-xs-center" target="_blank"
+                                                                    href="https://www.fiverr.com/share/qb8D02">
+                                                                    <i class="fa fa-twitter"></i>
+                                                                </a>
+                                                            </li>
+                                                            <li class="list-inline-item">
+                                                                <a class="social-icon text-xs-center" target="_blank"
+                                                                    href="https://www.fiverr.com/share/qb8D02">
+                                                                    <i class="fa fa-skype"></i>
+                                                                </a>
+                                                            </li>
+                                                            <li class="list-inline-item">
+                                                                <a class="social-icon text-xs-center" target="_blank"
+                                                                    href="https://www.fiverr.com/share/qb8D02">
+                                                                    <i class="fa fa-google"></i>
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- ./Team member -->
+                                <!-- Team member -->
+                                <div class="col-xs-12 col-sm-6 col-md-4">
+                                    <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                                        <div class="mainflip">
+                                            <div class="frontside">
+                                                <div class="card">
+                                                    <div class="card-body text-center">
+                                                        <p><img class=" img-fluid"
+                                                                src="https://source.unsplash.com/1600x900/?sandwich"
+                                                                alt="card image"></p>
+                                                        <h4 class="card-title">Veg Grilled Sandwich</h4>
+                                                        <p class="card-text reveal">Too few people understand a really
+                                                            good sandwich.
+                                                        </p>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="backside">
+                                                <div class="card">
+                                                    <div class="card-body text-center mt-4">
+                                                        <h4 class="card-title">Sandwich</h4>
+                                                        <p class="card-text reveal">A sandwich is a food typically
+                                                            consisting of vegetables, sliced cheese or meat.</p>
+                                                        <ul class="list-inline">
+                                                            <li class="list-inline-item">
+                                                                <a class="social-icon text-xs-center" target="_blank"
+                                                                    href="https://www.fiverr.com/share/qb8D02">
+                                                                    <i class="fa fa-facebook"></i>
+                                                                </a>
+                                                            </li>
+                                                            <li class="list-inline-item">
+                                                                <a class="social-icon text-xs-center" target="_blank"
+                                                                    href="https://www.fiverr.com/share/qb8D02">
+                                                                    <i class="fa fa-twitter"></i>
+                                                                </a>
+                                                            </li>
+                                                            <li class="list-inline-item">
+                                                                <a class="social-icon text-xs-center" target="_blank"
+                                                                    href="https://www.fiverr.com/share/qb8D02">
+                                                                    <i class="fa fa-skype"></i>
+                                                                </a>
+                                                            </li>
+                                                            <li class="list-inline-item">
+                                                                <a class="social-icon text-xs-center" target="_blank"
+                                                                    href="https://www.fiverr.com/share/qb8D02">
+                                                                    <i class="fa fa-google"></i>
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- ./Team member -->
+                                <!-- Team member -->
+                                <div class="col-xs-12 col-sm-6 col-md-4">
+                                    <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                                        <div class="mainflip">
+                                            <div class="frontside">
+                                                <div class="card">
+                                                    <div class="card-body text-center">
+                                                        <p><img class=" img-fluid"
+                                                                src="https://source.unsplash.com/1600x900/?burger"
+                                                                alt="card image"></p>
+                                                        <h4 class="card-title">HamBurger</h4>
+                                                        <p class="card-text reveal">it’s BURGER o’clock</p>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="backside">
+                                                <div class="card">
+                                                    <div class="card-body text-center mt-4">
+                                                        <h4 class="card-title">HamBurger</h4>
+                                                        <p class="card-text">A hamburger (or burger for short) is a
+                                                            food, typically considered a sandwich, consisting of one or
+                                                            more cooked patties—usually ground meat, typically
+                                                            beef—placed inside a sliced bread roll or bun. </p>
+                                                        <ul class="list-inline">
+                                                            <li class="list-inline-item">
+                                                                <a class="social-icon text-xs-center" target="_blank"
+                                                                    href="https://www.fiverr.com/share/qb8D02">
+                                                                    <i class="fa fa-facebook"></i>
+                                                                </a>
+                                                            </li>
+                                                            <li class="list-inline-item">
+                                                                <a class="social-icon text-xs-center" target="_blank"
+                                                                    href="https://www.fiverr.com/share/qb8D02">
+                                                                    <i class="fa fa-twitter"></i>
+                                                                </a>
+                                                            </li>
+                                                            <li class="list-inline-item">
+                                                                <a class="social-icon text-xs-center" target="_blank"
+                                                                    href="https://www.fiverr.com/share/qb8D02">
+                                                                    <i class="fa fa-skype"></i>
+                                                                </a>
+                                                            </li>
+                                                            <li class="list-inline-item">
+                                                                <a class="social-icon text-xs-center" target="_blank"
+                                                                    href="https://www.fiverr.com/share/qb8D02">
+                                                                    <i class="fa fa-google"></i>
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- ./Team member -->
+                                <!-- Team member -->
+                                <div class="col-xs-12 col-sm-6 col-md-4">
+                                    <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                                        <div class="mainflip">
+                                            <div class="frontside">
+                                                <div class="card">
+                                                    <div class="card-body text-center">
+                                                        <p><img class=" img-fluid"
+                                                                src="https://source.unsplash.com/1600x900/?pasta"
+                                                                alt="card image"></p>
+                                                        <h4 class="card-title">Pasta</h4>
+                                                        <p class="card-text reveal">Are you ready for spaghetti?</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="backside">
+                                                <div class="card">
+                                                    <div class="card-body text-center mt-4">
+                                                        <h4 class="card-title">Pasta</h4>
+                                                        <p class="card-text">Pasta is a type of food typically made from
+                                                            an unleavened dough of wheat flour mixed with water and
+                                                            formed into sheets or other shapes</p>
+                                                        <ul class="list-inline">
+                                                            <li class="list-inline-item">
+                                                                <a class="social-icon text-xs-center" target="_blank"
+                                                                    href="https://www.fiverr.com/share/qb8D02">
+                                                                    <i class="fa fa-facebook"></i>
+                                                                </a>
+                                                            </li>
+                                                            <li class="list-inline-item">
+                                                                <a class="social-icon text-xs-center" target="_blank"
+                                                                    href="https://www.fiverr.com/share/qb8D02">
+                                                                    <i class="fa fa-twitter"></i>
+                                                                </a>
+                                                            </li>
+                                                            <li class="list-inline-item">
+                                                                <a class="social-icon text-xs-center" target="_blank"
+                                                                    href="https://www.fiverr.com/share/qb8D02">
+                                                                    <i class="fa fa-skype"></i>
+                                                                </a>
+                                                            </li>
+                                                            <li class="list-inline-item">
+                                                                <a class="social-icon text-xs-center" target="_blank"
+                                                                    href="https://www.fiverr.com/share/qb8D02">
+                                                                    <i class="fa fa-google"></i>
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- ./Team member -->
+                                <!-- Team member -->
+                                <div class="col-xs-12 col-sm-6 col-md-4">
+                                    <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                                        <div class="mainflip">
+                                            <div class="frontside">
+                                                <div class="card">
+                                                    <div class="card-body text-center">
+                                                        <p><img class=" img-fluid"
+                                                                src="https://source.unsplash.com/1600x900/?coffee"
+                                                                alt="card image"></p>
+                                                        <h4 class="card-title">Espresso</h4>
+                                                        <p class="card-text reveal">ESPRESSO YOURSELF!</p>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="backside">
+                                                <div class="card">
+                                                    <div class="card-body text-center mt-4">
+                                                        <h4 class="card-title">Espresso</h4>
+                                                        <p class="card-text">Espresso is a coffee-brewing method of
+                                                            Italian origin, in which a small amount of nearly boiling
+                                                            water is forced under 9–10 bars of pressure</p>
+                                                        <ul class="list-inline">
+                                                            <li class="list-inline-item">
+                                                                <a class="social-icon text-xs-center" target="_blank"
+                                                                    href="https://www.fiverr.com/share/qb8D02">
+                                                                    <i class="fa fa-facebook"></i>
+                                                                </a>
+                                                            </li>
+                                                            <li class="list-inline-item">
+                                                                <a class="social-icon text-xs-center" target="_blank"
+                                                                    href="https://www.fiverr.com/share/qb8D02">
+                                                                    <i class="fa fa-twitter"></i>
+                                                                </a>
+                                                            </li>
+                                                            <li class="list-inline-item">
+                                                                <a class="social-icon text-xs-center" target="_blank"
+                                                                    href="https://www.fiverr.com/share/qb8D02">
+                                                                    <i class="fa fa-skype"></i>
+                                                                </a>
+                                                            </li>
+                                                            <li class="list-inline-item">
+                                                                <a class="social-icon text-xs-center" target="_blank"
+                                                                    href="https://www.fiverr.com/share/qb8D02">
+                                                                    <i class="fa fa-google"></i>
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- ./Team member -->
+                                <!-- Team member -->
+                                <div class="col-xs-12 col-sm-6 col-md-4">
+                                    <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                                        <div class="mainflip">
+                                            <div class="frontside">
+                                                <div class="card">
+                                                    <div class="card-body text-center">
+                                                        <p><img class=" img-fluid"
+                                                                src="https://source.unsplash.com/1600x900/?fries"
+                                                                alt="card image"></p>
+                                                        <h4 class="card-title">Fries</h4>
+                                                        <p class="card-text reveal">Excercise..? I thought you said
+                                                            EXTRA-FRIES </p>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="backside">
+                                                <div class="card">
+                                                    <div class="card-body text-center mt-4">
+                                                        <h4 class="card-title">French Fries</h4>
+                                                        <p class="card-text">French fries (North American English),
+                                                            chips (British English),finger chips (Indian
+                                                            English),French-fried potatoes, or simply fries, are
+                                                            batonnet or allumette-cut deep-fried potatoes, originating
+                                                            from either Belgium or France.</p>
+                                                        <ul class="list-inline">
+                                                            <li class="list-inline-item">
+                                                                <a class="social-icon text-xs-center" target="_blank"
+                                                                    href="https://www.fiverr.com/share/qb8D02">
+                                                                    <i class="fa fa-facebook"></i>
+                                                                </a>
+                                                            </li>
+                                                            <li class="list-inline-item">
+                                                                <a class="social-icon text-xs-center" target="_blank"
+                                                                    href="https://www.fiverr.com/share/qb8D02">
+                                                                    <i class="fa fa-twitter"></i>
+                                                                </a>
+                                                            </li>
+                                                            <li class="list-inline-item">
+                                                                <a class="social-icon text-xs-center" target="_blank"
+                                                                    href="https://www.fiverr.com/share/qb8D02">
+                                                                    <i class="fa fa-skype"></i>
+                                                                </a>
+                                                            </li>
+                                                            <li class="list-inline-item">
+                                                                <a class="social-icon text-xs-center" target="_blank"
+                                                                    href="https://www.fiverr.com/share/qb8D02">
+                                                                    <i class="fa fa-google"></i>
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <!-- ./Team member -->
+
+
+
+
+
+
+
+
+                            </div>
+                        </div>
+                    </section>
+
+
+
+
+                    <!-- foodmenu goes from here -->
+
+                    <!-- Team -->
+
+                    <div class="content reveal">
+
+
+                        <div class="container-fluid-px-0" id="containermenu">
+                            <figure>
+                                <img class="img-fluid" src="\images\burgerbg.jpg" alt="">
+                                <center>
+                                    <div class="centered section-title-h1 reveal">
+                                        <h1 class="life">
+                                            Life Happens <br>
+                                            Burger Helps!
+
+
+                                        </h1>
+                                        <h3 class="flat">Flat <b>30%</b>off on Burgers</h3>
+                                    </div>
+
+
+                                </center>
+                            </figure>
+
+
+                            <div class="container">
+
+
+
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+                                        <div class="page-section">
+                                            <h1 class="page-title">Food Menu</h1>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div
+                                    class="row  animate__animated animate__fadeInLeft slower animate__delay-5s animate slower">
+                                    <!-- starter -->
+                                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 mb40">
+                                        <div class="menu-block">
+                                            <h3 class="menu-title">Starter</h3>
+                                            <div class="menu-content">
+                                                <div class="row">
+                                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+
+                                                    </div>
+                                                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                                                        <div class="dish-content">
+                                                            <h5 class="dish-title"><a href="#">Burger</a>
+                                                            </h5>
+                                                            <span class="dish-meta">Cheese /Mayonese</span>
+                                                            <div class="dish-price">
+                                                                <p>₹100</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="menu-content">
+                                                <div class="row">
+                                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+
+                                                    </div>
+                                                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                                                        <div class="dish-content">
+                                                            <h5 class="dish-title"><a href="#">Cheese Balls</a></h5>
+                                                            <span class="dish-meta">puffed corn / cheese-flavored
+                                                            </span>
+                                                            <div class="dish-price">
+                                                                <p>₹80</p>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="menu-content">
+                                                <div class="row">
+                                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+
+                                                    </div>
+                                                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                                                        <div class="dish-content">
+                                                            <h5 class="dish-title"><a href="#">Pasta</a> </h5>
+                                                            <span class="dish-meta">Ginger garlic / Black pepper</span>
+                                                            <div class="dish-price">
+                                                                <p>₹120</p>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- /.starter -->
+                                    <!-- Soup -->
+                                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 mb40">
+                                        <div class="menu-block">
+                                            <h3 class="menu-title">More Than Starter</h3>
+                                            <div class="menu-content">
+                                                <div class="row">
+                                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+
+                                                    </div>
+                                                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                                                        <div class="dish-content">
+                                                            <h5 class="dish-title"><a href="#">Minestrone</a></h5>
+                                                            <span class="dish-meta"> beans / onions celery /
+                                                                carrots</span>
+                                                            <div class="dish-price">
+                                                                <p>₹150</p>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="menu-content">
+                                                <div class="row">
+                                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+
+                                                    </div>
+                                                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                                                        <div class="dish-content">
+                                                            <h5 class="dish-title"><a href="#">French Fries</a></h5>
+                                                            <span class="dish-meta">Cheesiy / Creamy / Sweet</span>
+                                                            <div class="dish-price">
+                                                                <p>₹140</p>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="menu-content">
+                                                <div class="row">
+                                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+
+                                                    </div>
+                                                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                                                        <div class="dish-content">
+                                                            <h5 class="dish-title"><a href="#">Cream of broccoli</a>
+                                                            </h5>
+                                                            <span class="dish-meta"> broccoli / milk / cream </span>
+                                                            <div class="dish-price">
+                                                                <p>₹150</p>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- /.soup -->
+                                    <!-- main course -->
+                                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 mb40">
+                                        <div class="menu-block">
+                                            <h3 class="menu-title"> Far More Than Starter</h3>
+                                            <div class="menu-content">
+                                                <div class="row">
+                                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+
+                                                    </div>
+                                                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                                                        <div class="dish-content">
+                                                            <h5 class="dish-title"><a href="#">Espresso</a></h5>
+                                                            <span class="dish-meta"> Extra Sugar / Beans</span>
+                                                            <div class="dish-price">
+                                                                <p>₹140</p>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="menu-content">
+                                                <div class="row">
+                                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+
+                                                    </div>
+                                                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                                                        <div class="dish-content">
+                                                            <h5 class="dish-title"><a href="#">Sandwich</a></h5>
+                                                            <span class="dish-meta">Cheezy Dip / Grilled
+                                                            </span>
+                                                            <div class="dish-price">
+                                                                <p>₹110</p>
+                                                            </div>
+                                                        </div>
+
+                                                        <h4 class="page-title">
+                                                            And Many More to Come!</h4>
+                                                        <h5 class="dish-title"
+                                                            style="font-size: 30px; color: rgba(143, 197, 138, 0.74);">
+                                                            Stay Tuned ;-)</h5>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+
+
+                                            <!-- </div>
+                                        <div class="menu-content">
+                                             <div class="row">
+                                                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                                  
+                                                </div> -->
+                                            <!-- <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                                                    <div class="dish-content">
+                                                        <h5 class="dish-title"><a href="#">Chole Bhature</a> </h5>
+                                                        <span class="dish-meta"> Rice Soft Idli / Ragi idli / Oats Idli
+                                                        </span>
+                                                        <div class="dish-price">
+                                                            <p>₹8</p>
+                                                        </div>
+                                                    </div>
+
+                                                </div> 
+                                            </div> 
+                                        </div>
+                                    </div>
+                                </div> -->
+                                            <!-- /.main Course -->
+                                            <!-- <div class="row">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mt30">
+                                        Created by <a href="https://goo.gl/XgSVLQ" target="_blank">easetemplate</a>
+                                    </div>
+                                </div> -->
+                                        </div>
+                                    </div>
+                                </div>

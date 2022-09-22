@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        console.log("okk");
+          let mainimg="";
+          function readimg (myeve){
+          let  preview = document.getElementById("preview");
+        let imgg =  document.getElementById('myimgset');
+        
+        var reader;
+        
+        if (imgg.files && imgg.files[0]) {
+          reader = new FileReader();
+          reader.onload = function {
+            var elem =    document.createElement("img");
+                   //   elem.setAttribute("src", myimg);
+                      elem.setAttribute("id", "newimg");
+                      elem.setAttribute("src", e.target.result);
+                      document.getElementById("myset").appendChild(elem);
+                      mainimg =e.target.result;
+            // preview.setAttribute('src', e.target.result);
+          }
+        
+          reader.readAsDataURL(imgg.files[0]);
+        }
+        
+          }
+        
+        
+        function  submitform(){
+              
+             
+          let imgdata = mainimg;
+          let fn = document.getElementById('firstname').value;
+          const file = this.DataURIToBlob(imgdata);
+            const formData = new FormData();
+            formData.append('file', file, 'imgone.jpg');
+            formData.append('fname', fn);
+            console.log(formData);
+        
+         
+        
+          }
+        
+        
+         function DataURIToBlob(dataURI) {
+                const splitDataURI = dataURI.split(',')
+                const byteString = splitDataURI[0].indexOf('base64') >= 0 ? atob(splitDataURI[1]) : decodeURI(splitDataURI[1])
+                const mimeString = splitDataURI[0].split(':')[1].split(';')[0]
+        
+                const ia = new Uint8Array(byteString.length)
+                for (let i = 0; i < byteString.length; i++)
+                    ia[i] = byteString.charCodeAt(i);
+        
+                return new Blob([ia], { type: mimeString })
+              }
+        
+        </script>
+</head>
+<body>
+    
+<form >
+
+    &nbsp;  &nbsp;  &nbsp;  &nbsp; First Name  <input type="text" id="firstname"  name="firstname" placeholder="Enter Your Name"> <br>
+     <br>
+   
+     &nbsp;  &nbsp;  &nbsp;  &nbsp;   <input type="file"  id="myimgset" accept="image/*" onchange="readimg()"> <br>
+ 
+     <div  id="myset" style="width:300px;height:200px;border:1px solid red;">
+     
+  
+ 
+       </div>  
+       <br>  <br>
+     &nbsp;  &nbsp;  &nbsp;   <input type="button"  value="Submit Now" onclick="submitform()">  
+ </form>
+      
+ </body>
+ </html>
+
+ 
