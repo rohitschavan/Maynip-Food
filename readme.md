@@ -4,7 +4,7 @@
 
 <h2>🚀 Demo</h2>
 
-[https://6390a0445bb2a61caa3ce210--moonlit-pastelito-f65652.netlify.app/](https://6390a0445bb2a61caa3ce210--moonlit-pastelito-f65652.netlify.app/)
+[https://maynip.netlify.app/)
 
   
   
