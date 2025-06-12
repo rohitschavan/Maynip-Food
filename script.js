@@ -21,5 +21,6 @@ JsPDF.onload = function () {
     var pageCount = pdf.internal.getNumberOfPages();
     pdf.deletePage(pageCount) 
     pdf.save("File_Name.pdf");
+    console.log('soe')
 };
  
